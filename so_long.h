@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:55:55 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/16 17:42:14 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/17 18:06:17 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,17 @@
 # endif
 
 char	*ft_strjoin(char *s1, char *s2);
-char *readall(int fd);
+char *readall(char *s, int fd);
 char	*ft_strdup(char *s1);
 char	**splitnewline(char *s, int *len, char l);
 size_t	ft_strlen(char *str);
 // ! parsing
-void checkall(char **s,int i);
+void checkall(char *s1, char **s,int i);
 
 // * all about free memory
 void freememory(int c, char **v);
 void failer_malloc(char **s,char *s2 ,char *s1,int i);
-void error_handling(char *s, char **s1,int i);
+void error_handling(char *s, char **s1, int i);
 
 // ! temp
 void print(char **s);

@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:55:52 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/16 18:07:28 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/17 18:05:56 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void first_step(char *s)
     int i;
     
     lines = splitnewline(s,&i,'\n');
-    free(s);
-    checkall(lines,i);
+    checkall(s,lines,i);
+    freememory(i,lines);
 }
 void program(int ac, char **av)
 {
@@ -27,8 +27,7 @@ void program(int ac, char **av)
    
    s = ft_strjoin(ft_strdup("file/"),av[1]);
    fd = open(s,O_RDONLY);
-   free(s);
-   s = readall(fd);
+   s = readall(s,fd);
    first_step(s);
    close(fd);
 }
@@ -39,7 +38,7 @@ int main(int ac, char **av)
         write(2, "Error\n",6);
         return (1);
     }
-    // system("leaks so_long");
     program(ac, av);
+    system("leaks so_long");
     return (0);
 }

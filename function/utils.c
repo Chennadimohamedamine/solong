@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 18:22:47 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/16 18:06:58 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/17 18:06:34 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void freememory(int c, char **v)
 	}
 	free(v);
 }
-char *readall(int fd)
+char *readall(char *s, int fd)
 {
 	char	*buffer;
 	int		r;
@@ -50,6 +50,7 @@ char *readall(int fd)
 			break ;
 	}
 	free(str);
+	free(s);
 	return (buffer);
 }
 void failer_malloc(char **s, char *s2, char *s1, int i)
@@ -62,13 +63,11 @@ void failer_malloc(char **s, char *s2, char *s1, int i)
 		free(s2);
 	exit(1);	
 }
-void error_handling(char *s, char **s1,int i)
+void error_handling(char *s,char **s1,int i)
 {
-	if (s)
-		free(s);
-	s1[1] =0;
-	i = 0; 
+	free(s);
 	freememory(i,s1);
 	write(2,"Error\n",6);
+	system("leaks so_long");
 	exit(1);
 }
