@@ -7,7 +7,7 @@ OBJFILE = $(FILE:%.c=%.o)
 NAME = so_long
 
 $(NAME): $(OBJFILE)
-	cc -Wall -Wextra -Werror $(OBJFILE) -o $(NAME)
+	cc -Wall -Wextra -Werror -lmlx -framework OpenGL -framework AppKit $(OBJFILE) -o $(NAME)
 
 
 %.o: %.c mandatory/so_long.h readline/get_next_line.h
