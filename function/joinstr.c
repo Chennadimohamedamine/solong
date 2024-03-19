@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 18:08:27 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/15 21:49:16 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/19 17:34:21 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,24 @@ char	*ft_strjoin(char *s1, char *s2)
 	s[i] = 0;
 	free(s1);
 	return (s);
+}
+
+void	failer_malloc(char **s, char *s2, char *s1, int i)
+{
+	if (i > 0)
+		freememory(i, s);
+	if (s1)
+		free(s1);
+	if (s2)
+		free(s2);
+	exit(1);
+}
+
+void	error_handling(char *s, char **s1, int i)
+{
+	free(s);
+	freememory(i, s1);
+	write(2, "Error\n", 6);
+	system("leaks so_long");
+	exit(1);
 }

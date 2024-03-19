@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 17:46:11 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/16 21:59:17 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/19 17:15:56 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,47 @@ char	**splitnewline(char *s, int *len, char l)
 	r[g] = 0;
 	*len = g;
 	return (r);
+}
+
+void	freememory(int c, char **v)
+{
+	int	i;
+
+	if (c == 0)
+		return ;
+	i = 0;
+	while (i < c)
+	{
+		free(v[i]);
+		i++;
+	}
+	free(v);
+}
+
+char	*readall(char *s, int fd)
+{
+	char	*buffer;
+	int		r;
+	char	*str;
+
+	str = (char *)malloc((size_t)BUFFER_SIZE + 1);
+	if (!str)
+		return (NULL);
+	r = 1;
+	buffer = NULL;
+	while (r > 0)
+	{
+		r = read(fd, str, BUFFER_SIZE);
+		if (r < 0)
+			failer_malloc(NULL, buffer, str, 0);
+		str[r] = '\0';
+		buffer = ft_strjoin(buffer, str);
+		if (!buffer)
+			failer_malloc(NULL, buffer, str, 0);
+		if (r == 0)
+			break ;
+	}
+	free(str);
+	free(s);
+	return (buffer);
 }

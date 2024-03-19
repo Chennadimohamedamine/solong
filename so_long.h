@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:55:55 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/17 18:06:17 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/19 16:58:59 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,18 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10
 # endif
+// *program
+char **lines(char *av);
 
+
+
+// * file use them to exuct
 char	*ft_strjoin(char *s1, char *s2);
 char *readall(char *s, int fd);
 char	*ft_strdup(char *s1);
 char	**splitnewline(char *s, int *len, char l);
 size_t	ft_strlen(char *str);
+
 // ! parsing
 void checkall(char *s1, char **s,int i);
 
