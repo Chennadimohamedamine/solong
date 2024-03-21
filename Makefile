@@ -1,5 +1,5 @@
 FUNCTION =  function/utils.c function/splitlines.c  function/joinstr.c  function/temp.c \
-			function/parsing.c
+			function/parsing.c function/validgame.c
 FILE = so_long.c $(READ) $(FUNCTION)
 BONUS = 
 

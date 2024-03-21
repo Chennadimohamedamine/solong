@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 17:52:18 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/19 17:29:18 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/20 22:16:05 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ int	emty(char *s)
 	while (s[i])
 	{
 		if (s[i] == '\n' && (s[i + 1] == '\n' || s[i + 1] == 0))
+			return (1);
+		if (!(s[i] == 'P' || s[i] == 'E' || s[i] == 'C'
+			|| s[i] != '1' || s[i] != '0'))
 			return (1);
 		i++;
 	}
@@ -43,14 +46,9 @@ int	check_double(char *s)
 			g[0]++;
 		else if (s[i] == 'P' || s[i] == 'E')
 			g[1]++;
-		else if (s[i] == '0')
-			g[3]++;
-		if ((s[i] == 'P' || s[i] == 'E' || s[i] == 'C')
-			&& (s[i - 1] == '1' && s[i + 1] == '1'))
-			return (1);
 		i++;
 	}
-	if (g[0] == 0 || g[1] != 2 || g[3] == 0)
+	if (g[0] == 0 || g[1] != 2)
 		return (1);
 	return (0);
 }
@@ -87,8 +85,7 @@ void	checkall(char *s1, char **s, int i)
 	if (i < 3 || emty(s1))
 		error_handling(s1, s, i);
 	check_gui(s1, s, i);
-	free(s1);
-	printf("all good\n");
+	// check_game(s1, s, i);
 }
 
 char	**lines(char *av)
@@ -97,11 +94,17 @@ char	**lines(char *av)
 	char	*s;
 	int		fd;
 
-	s = ft_strjoin(ft_strdup("file/"), av);
-	fd = open(s, O_RDONLY);
-	s = readall(s, fd);
+	if (check_ens(av + (ft_strlen(av) - 4), ".ber") != 0)
+	{
+		write(1, "Error\n", 6);
+		exit(1);
+	}
+	fd = open(av, O_RDONLY);
+	s = readall(fd);
 	close(fd);
 	lines = splitnewline(s, &fd, '\n');
 	checkall(s, lines, fd);
+	invalid_game(s);
+	free(s);
 	return (lines);
 }

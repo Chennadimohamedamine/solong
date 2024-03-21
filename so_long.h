@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:55:55 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/19 16:58:59 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/20 22:16:16 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,15 @@ char **lines(char *av);
 
 // * file use them to exuct
 char	*ft_strjoin(char *s1, char *s2);
-char *readall(char *s, int fd);
+char *readall(int fd);
 char	*ft_strdup(char *s1);
 char	**splitnewline(char *s, int *len, char l);
 size_t	ft_strlen(char *str);
 
 // ! parsing
 void checkall(char *s1, char **s,int i);
+int check_ens(char *s,char *s1);
+void invalid_game(char *s1);
 
 // * all about free memory
 void freememory(int c, char **v);

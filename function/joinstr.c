@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 18:08:27 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/19 17:34:21 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/20 16:39:40 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,8 @@ void	failer_malloc(char **s, char *s2, char *s1, int i)
 
 void	error_handling(char *s, char **s1, int i)
 {
-	free(s);
+	if (s != NULL)
+		free(s);
 	freememory(i, s1);
 	write(2, "Error\n", 6);
 	system("leaks so_long");

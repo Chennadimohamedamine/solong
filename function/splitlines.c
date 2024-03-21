@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 17:46:11 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/19 17:15:56 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/20 16:08:42 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	freememory(int c, char **v)
 	free(v);
 }
 
-char	*readall(char *s, int fd)
+char	*readall(int fd)
 {
 	char	*buffer;
 	int		r;
@@ -121,6 +121,5 @@ char	*readall(char *s, int fd)
 			break ;
 	}
 	free(str);
-	free(s);
 	return (buffer);
 }

@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:55:52 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/19 17:35:20 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/20 22:40:44 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void so_long(char *av)
    char **map;
    
    map = lines(av);
-   print(map);
+//    print(map);
 }
 int main(int ac, char **av)
 {

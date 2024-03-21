@@ -6,8 +6,30 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 18:22:47 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/19 17:12:05 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/20 22:16:37 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
+int check_ens(char *s, char *s1)
+{
+    int i;
+    int j;
+
+    i = 0;
+    j = 0;
+    while(s[i] && s1[j] && s[i] == s1[j])
+    {
+        i++;
+        j++;
+    }
+    return (s[i] - s1[j]);
+}
+// void invalid_game(char *s)
+// {
+//     int i;
+
+//     i = 0;
+    
+// }
