@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 17:23:00 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/21 02:53:48 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/21 16:42:53 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void invalid_game(char *s1)
     p[1] = 0;
     get_positon(map,&p[0],&p[1]);
     flood_fill(map,p[0],p[1],i);
-    // print(map);
     if(check_path(map))
         error_handling(s1,map,i);
+    freememory(i,map);
 }

@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 17:52:18 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/20 22:16:05 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/21 17:03:58 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	checkall(char *s1, char **s, int i)
 	// check_game(s1, s, i);
 }
 
-char	**lines(char *av)
+char	**lines(char *av, int *y)
 {
 	char	**lines;
 	char	*s;
@@ -105,6 +105,7 @@ char	**lines(char *av)
 	lines = splitnewline(s, &fd, '\n');
 	checkall(s, lines, fd);
 	invalid_game(s);
+	*y = fd;
 	free(s);
 	return (lines);
 }

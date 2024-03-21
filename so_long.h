@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:55:55 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/20 22:16:16 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/21 17:06:39 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 #  define BUFFER_SIZE 10
 # endif
 // *program
-char **lines(char *av);
+char **lines(char *av,int *y);
 
 
 
