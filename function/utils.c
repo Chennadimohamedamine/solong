@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 18:22:47 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/20 22:16:37 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/24 22:10:40 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,9 @@ int check_ens(char *s, char *s1)
     }
     return (s[i] - s1[j]);
 }
-// void invalid_game(char *s)
-// {
-//     int i;
-
-//     i = 0;
+void out(t_solong *f)
+{
+    freememory(f->y,f->map);
+    free(f);
     
-// }
+}

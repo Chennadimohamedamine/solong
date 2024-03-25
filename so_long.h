@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:55:55 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/21 17:06:39 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/25 15:50:14 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,31 @@
 #include <fcntl.h>
 
 # ifndef BUFFER_SIZE
+
 #  define BUFFER_SIZE 10
+#  define X 20
+#  define Y 100
 # endif
+
+struct img
+{
+    void	*mlx;
+	char	*path;
+	int		width;
+	int		height;   
+};
+
+typedef struct so_long
+{
+    int x;
+    int y;
+    char **map;
+    void *mlx;
+    void *mlx_win;
+	void	*img;
+    struct img *image;
+} t_solong;
+
 // *program
 char **lines(char *av,int *y);
 

@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:55:52 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/21 17:17:58 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/25 15:41:13 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,16 @@
 
 void so_long(char *av)
 {
-   char **map;
-   int h[2];
-   void *mlx;
-   void *mlx_win;
+    t_solong *so_long;
 
-   map = lines(av,&h[0]);
-   mlx = mlx_init();
-   h[1] = ft_strlen(map[0]) * 25;
-   h[0] *= 80;
-   mlx_win = mlx_new_window(mlx,h[1],h[0],"so_long");
-   mlx_loop(mlx);
+    so_long = malloc(sizeof(so_long));
+    so_long->map = lines(av,&so_long->y);
+    so_long->x = ft_strlen(so_long->map[0]);
+    so_long->mlx = mlx_init();
+    so_long->x *= X;
+    so_long->y *= Y;
+    so_long->mlx_win = mlx_new_window(so_long->mlx,so_long->x,so_long->y,"so_long");
+   mlx_loop(so_long->mlx_win);
 }
 int main(int ac, char **av)
 {
@@ -34,6 +33,7 @@ int main(int ac, char **av)
         return (1);
     }
     so_long(av[1]);
+    // char **str = lines(av[1],&ac);
     return (0);
 }
 
