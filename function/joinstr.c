@@ -6,13 +6,13 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 18:08:27 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/20 16:39:40 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/26 01:48:39 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-size_t	ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
 	size_t	i;
 
@@ -84,6 +84,6 @@ void	error_handling(char *s, char **s1, int i)
 		free(s);
 	freememory(i, s1);
 	write(2, "Error\n", 6);
-	system("leaks so_long");
+	//system("leaks so_long");
 	exit(1);
 }

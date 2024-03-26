@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:55:55 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/25 15:50:14 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/26 18:13:28 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@
 # ifndef BUFFER_SIZE
 
 #  define BUFFER_SIZE 10
-#  define X 20
-#  define Y 100
+#  define ALL 60
 # endif
+
 
 struct img
 {
-    void	*mlx;
+    void	*mlx_img;
 	char	*path;
 	int		width;
 	int		height;   
@@ -42,7 +42,10 @@ typedef struct so_long
     void *mlx;
     void *mlx_win;
 	void	*img;
-    struct img *image;
+    void *img_ptr;   
+    void *img_ptr1;   
+    void *img_ptr2;   
+    void *img_ptr3;   
 } t_solong;
 
 // *program
@@ -55,7 +58,7 @@ char	*ft_strjoin(char *s1, char *s2);
 char *readall(int fd);
 char	*ft_strdup(char *s1);
 char	**splitnewline(char *s, int *len, char l);
-size_t	ft_strlen(char *str);
+int	ft_strlen(char *str);
 
 // ! parsing
 void checkall(char *s1, char **s,int i);

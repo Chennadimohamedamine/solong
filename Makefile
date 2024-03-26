@@ -10,7 +10,7 @@ $(NAME): $(OBJFILE)
 	cc -Wall -Wextra -Werror -lmlx -framework OpenGL -framework AppKit $(OBJFILE) -o $(NAME)
 
 
-%.o: %.c mandatory/so_long.h readline/get_next_line.h
+%.o: %.c so_long.h 
 	cc -Wall -Wextra -Werror -o $@ -c $<
 
 all : $(NAME)
