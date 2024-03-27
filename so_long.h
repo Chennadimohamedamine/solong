@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:55:55 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/26 18:13:28 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/27 00:57:17 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct so_long
     void *img_ptr1;   
     void *img_ptr2;   
     void *img_ptr3;   
+    void *img_ptr4;   
 } t_solong;
 
 // *program
