@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 17:23:00 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/21 16:42:53 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/28 15:57:04 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int check_path(char **s)
         j = 0;
         while(s[i][j])
         {
-            if(s[i][j] != 'E'&& s[i][j] != '1' && s[i][j] != 'F' && s[i][j] != '0')
+            if(s[i][j] != 'P' && s[i][j] != '1' && s[i][j] != 'F' && s[i][j] != '0' && s[i][j] != 'E')
                 return (1);
             j++;
         }
@@ -78,7 +78,7 @@ void invalid_game(char *s1)
     p[0] = 0;    
     p[1] = 0;
     get_positon(map,&p[0],&p[1]);
-    flood_fill(map,p[0],p[1],i);
+    flood_fill(map,p[1],p[0],i);
     if(check_path(map))
         error_handling(s1,map,i);
     freememory(i,map);
