@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:55:55 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/27 00:57:17 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/27 18:06:50 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,18 @@
 # endif
 
 
-struct img
-{
-    void	*mlx_img;
-	char	*path;
-	int		width;
-	int		height;   
+struct position
+{  
+    int x;
+    int y;
+    int move;
 };
 
 typedef struct so_long
 {
     int x;
     int y;
+    // int move;
     char **map;
     void *mlx;
     void *mlx_win;
@@ -46,14 +46,19 @@ typedef struct so_long
     void *img_ptr1;   
     void *img_ptr2;   
     void *img_ptr3;   
-    void *img_ptr4;   
+    void *img_ptr4;
+    struct position event;
 } t_solong;
 
 // *program
 char **lines(char *av,int *y);
-
-
-
+void put_image(t_solong *so_long);
+void convert_img(t_solong *img);
+void get_positon(char **s, int *x, int *y);
+void swap_value(char s1,char s2);
+// move and key and event
+void event_key(t_solong *solong);
+void move_to_right(t_solong *solong);
 // * file use them to exuct
 char	*ft_strjoin(char *s1, char *s2);
 char *readall(int fd);

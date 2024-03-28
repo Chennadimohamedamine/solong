@@ -1,6 +1,6 @@
 FUNCTION =  function/utils.c function/splitlines.c  function/joinstr.c  function/temp.c \
-			function/parsing.c function/validgame.c
-FILE = so_long.c $(READ) $(FUNCTION)
+			function/parsing.c function/validgame.c function/drow.c function/hook_move.c
+FILE = so_long.c $(FUNCTION)
 BONUS = 
 
 OBJFILE = $(FILE:%.c=%.o)

@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 18:22:47 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/24 22:10:40 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/27 18:00:09 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,16 @@ int check_ens(char *s, char *s1)
     }
     return (s[i] - s1[j]);
 }
-void out(t_solong *f)
-{
-    freememory(f->y,f->map);
-    free(f);
+// void out(t_solong *f)
+// {
+//     freememory(f->y,f->map);
+//     free(f);
     
+// }
+void swap_value(char s1,char s2)
+{
+    char c;
+    c = s1;
+    s1 = s2;
+    s2 = s1;
 }
