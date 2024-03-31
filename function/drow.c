@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 16:23:32 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/28 16:42:15 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/31 22:54:34 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void put_image(t_solong *so_long)
     int i;
     int j;
 
-    convert_img(so_long);
     i = 0;
     while(i < so_long->y)
     {
@@ -57,6 +56,8 @@ void put_image(t_solong *so_long)
 }
 int	key_hook(int keycode, t_solong *v)
 {
+    print_move(v->event.move++);
+    mlx_clear_window(v->mlx,v->mlx_win);  
     if (keycode == 53)
         printf("gome is over\n");
     else if(keycode == 0 || keycode == 123)
@@ -67,13 +68,13 @@ int	key_hook(int keycode, t_solong *v)
         move_to_up(v);
     else if(keycode == 1 || keycode == 125)
         move_to_down(v);
+    put_image(v);
 	return (0);
 }
 void event_key(t_solong *solong)
 {
     get_positon(solong->map,&solong->event.y,&solong->event.x);
-    printf("x == %d\n",solong->event.x);
-    printf("y == %d\n",solong->event.y);
-    solong->event.move = 0;
+    solong->event.move = 1;
+    solong->event.collectible = all_collect(solong->map);
     mlx_key_hook(solong->mlx_win, key_hook, solong);
 }

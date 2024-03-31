@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:55:52 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/28 15:57:34 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/31 22:44:10 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void so_long(char *av)
     so_long.x = ft_strlen(so_long.map[0]);
     so_long.mlx = mlx_init();
     so_long.mlx_win = mlx_new_window(so_long.mlx,so_long.x * ALL,so_long.y * ALL,"<><> so_long <><>");
+    convert_img(&so_long);
     put_image(&so_long);
     event_key(&so_long);
     mlx_loop(so_long.mlx);

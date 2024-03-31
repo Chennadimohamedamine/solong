@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 18:22:47 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/28 15:24:24 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/31 22:39:12 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,36 @@ int check_ens(char *s, char *s1)
     }
     return (s[i] - s1[j]);
 }
-// void out(t_solong *f)
-// {
-//     freememory(f->y,f->map);
-//     free(f);
-    
-// }
-void swap_value(char *s1,char *s2)
+int all_collect(char **map)
 {
-    char c;
-    c = *s2;
-    *s2 = *s1;
-   *s1 = *s2;
+    int i;
+    int j;
+    int c;
+
+    c = 0;
+    i = 0;
+    while (map[i])
+    {
+        j = 0;
+        while (map[i][j])
+        {
+            if (map[i][j] == 'C')
+                c++;
+            j++;   
+        }
+        i++;
+    }
+    return (c);
+}
+void convert_number(int i)
+{
+   if (i > 9)
+        convert_number(i / 10);
+    write(1,&"0123456789"[i % 10],1);
+}
+void print_move(int i)
+{
+    write(1,"move number : ",15);
+    convert_number(i);
+    write(1,"\n",1);
 }

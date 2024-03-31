@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:55:55 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/28 16:41:37 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/03/31 22:39:21 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,12 @@
 # endif
 
 
-struct position
+struct game
 {  
     int x;
     int y;
     int move;
+    int collectible;
 };
 
 typedef struct so_long
@@ -48,7 +49,7 @@ typedef struct so_long
     void *img_ptr3;   
     void *img_ptr4;
     void *img_ptr5;
-    struct position event;
+    struct game event;
 } t_solong;
 
 // *program
@@ -58,7 +59,8 @@ void convert_img(t_solong *img);
 void get_positon(char **s, int *x, int *y);
 void swap_value(char *s1,char *s2);
 // move and key and event
-
+void print_move(int i);
+int all_collect(char **map);
 
 
 void event_key(t_solong *solong);
