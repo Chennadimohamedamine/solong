@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:55:55 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/01 01:10:44 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/01 17:46:08 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void swap_value(char *s1,char *s2);
 void print_move(int i);
 int all_collect(char **map);
 void get_positon_exit(char **s, int *x, int *y);
+int ft_close(t_solong *solong);
 
 void game(t_solong *solong);
 void move_to_right(t_solong *solong);

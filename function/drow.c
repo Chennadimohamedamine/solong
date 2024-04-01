@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 16:23:32 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/01 01:10:35 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/01 17:59:10 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,8 @@ int	key_hook(int keycode, t_solong *v)
 {
     print_move(v->event.move++);
     mlx_clear_window(v->mlx,v->mlx_win);
-    // if (v->event.collectible == 0)
-    //     mlx_put_image_to_window(v->mlx, v->mlx_win,v->open, v->x_e * ALL, v->y_e * ALL);
     if (keycode == 53)
-        mlx_destroy_window(v->mlx,v->mlx_win);
+        ft_close(v);
     else if(keycode == 0 || keycode == 123)
         move_to_left(v);
     else if(keycode == 2 || keycode == 124)
@@ -75,6 +73,7 @@ int	key_hook(int keycode, t_solong *v)
     put_image(v);
 	return (0);
 }
+
 void game(t_solong *so_long)
 {
     get_positon(so_long->map,&so_long->event.y,&so_long->event.x);
@@ -82,5 +81,6 @@ void game(t_solong *so_long)
     so_long->event.move = 1;
     so_long->event.collectible = all_collect(so_long->map);
     put_image(so_long);
-    mlx_key_hook(so_long->mlx_win, key_hook, so_long);
+    mlx_key_hook(so_long->mlx_win, &key_hook, so_long);
+    mlx_hook(so_long->mlx_win, 17, 0, ft_close, so_long);
 }

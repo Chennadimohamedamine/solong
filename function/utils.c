@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 18:22:47 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/31 22:39:12 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/01 17:46:55 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,10 @@ void print_move(int i)
     write(1,"move number : ",15);
     convert_number(i);
     write(1,"\n",1);
+}
+int ft_close(t_solong *solong)
+{
+    mlx_destroy_window(solong->mlx, solong->mlx_win);
+    freememory(solong->y,solong->map);
+    exit(1);
 }
