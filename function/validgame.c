@@ -6,12 +6,37 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 17:23:00 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/28 15:57:04 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/01 00:30:47 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
+void get_positon_exit(char **s, int *x, int *y)
+{
+    int i;
+    int j;
+    
+    i = 0;
+    while (s[i])
+    {
+        j = 0;
+        while(s[i][j])
+        {
+            if(s[i][j] == 'E')
+            {
+                *x = 1;
+                break;
+            }
+            j++;
+        }
+        if (*x == 1)
+            break ;
+        i++;
+    }
+    *x = i;
+    *y = j;
+}
 void get_positon(char **s, int *x, int *y)
 {
     int i;

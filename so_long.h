@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:55:55 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/31 22:39:21 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/01 01:10:44 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,22 @@ struct game
     int move;
     int collectible;
 };
-
 typedef struct so_long
 {
     int x;
     int y;
-    // int move;
+    int x_e;
+    int y_e;
     char **map;
     void *mlx;
     void *mlx_win;
 	void	*img;
-    void *img_ptr;   
-    void *img_ptr1;   
-    void *img_ptr2;   
-    void *img_ptr3;   
-    void *img_ptr4;
-    void *img_ptr5;
+    void *walls;   
+    void *player;   
+    void *collect;   
+    void *close;   
+    void *open;
+    void *bg;
     struct game event;
 } t_solong;
 
@@ -61,9 +61,9 @@ void swap_value(char *s1,char *s2);
 // move and key and event
 void print_move(int i);
 int all_collect(char **map);
+void get_positon_exit(char **s, int *x, int *y);
 
-
-void event_key(t_solong *solong);
+void game(t_solong *solong);
 void move_to_right(t_solong *solong);
 void move_to_left(t_solong *solong);
 void move_to_down(t_solong *solong);

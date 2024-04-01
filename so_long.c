@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:55:52 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/31 22:44:10 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/01 01:10:29 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ void so_long(char *av)
     so_long.mlx = mlx_init();
     so_long.mlx_win = mlx_new_window(so_long.mlx,so_long.x * ALL,so_long.y * ALL,"<><> so_long <><>");
     convert_img(&so_long);
-    put_image(&so_long);
-    event_key(&so_long);
+    game(&so_long);
     mlx_loop(so_long.mlx);
 }
 int main(int ac, char **av)

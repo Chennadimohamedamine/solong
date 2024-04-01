@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 16:23:32 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/31 22:54:34 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/01 01:10:35 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ void convert_img(t_solong *img)
     s = ALL;
     s1 = 45;
     f = 100;
-    img->img_ptr = mlx_xpm_file_to_image(img->mlx,"img/walls1.xpm",&s,&s);
-    img->img_ptr1 = mlx_xpm_file_to_image(img->mlx,"img/player_.xpm",&s,&s);
-    img->img_ptr2 = mlx_xpm_file_to_image(img->mlx,"img/collectible.xpm",&s1,&s1);
-    img->img_ptr3 = mlx_xpm_file_to_image(img->mlx,"img/exit_close.xpm",&f,&f);
-    img->img_ptr4 = mlx_xpm_file_to_image(img->mlx,"img/exit_close.xpm",&f,&f);
-    img->img_ptr5 = mlx_xpm_file_to_image(img->mlx,"img/bg.xpm",&f,&f);
+    img->walls = mlx_xpm_file_to_image(img->mlx,"img/walls1.xpm",&s,&s);
+    img->player = mlx_xpm_file_to_image(img->mlx,"img/player_.xpm",&s,&s);
+    img->collect = mlx_xpm_file_to_image(img->mlx,"img/collectible.xpm",&s1,&s1);
+    img->close = mlx_xpm_file_to_image(img->mlx,"img/close.xpm",&f,&f);
+    img->open = mlx_xpm_file_to_image(img->mlx,"img/open.xpm",&f,&f);
+    img->bg = mlx_xpm_file_to_image(img->mlx,"img/bg.xpm",&f,&f);
 }
 void put_image(t_solong *so_long)
 {
@@ -40,15 +40,17 @@ void put_image(t_solong *so_long)
         while(j < so_long->x)
         {
             if(so_long->map[i][j] == '1')
-                mlx_put_image_to_window(so_long->mlx, so_long->mlx_win,so_long->img_ptr, j * ALL, i * ALL);
-            else if(so_long->map[i][j] == 'E')
-                mlx_put_image_to_window(so_long->mlx, so_long->mlx_win,so_long->img_ptr3, j * ALL, i * ALL);
+                mlx_put_image_to_window(so_long->mlx, so_long->mlx_win,so_long->walls, j * ALL, i * ALL);
             else if(so_long->map[i][j] == 'P')
-                mlx_put_image_to_window(so_long->mlx, so_long->mlx_win,so_long->img_ptr1, j * ALL, i * ALL);
+                mlx_put_image_to_window(so_long->mlx, so_long->mlx_win,so_long->player, j * ALL, i * ALL);
+            else if(so_long->map[i][j] == 'E' && so_long->event.collectible != 0)
+                mlx_put_image_to_window(so_long->mlx, so_long->mlx_win,so_long->close, j * ALL, i * ALL);
+            else if(so_long->map[i][j] == 'E' && so_long->event.collectible == 0)
+                mlx_put_image_to_window(so_long->mlx, so_long->mlx_win,so_long->open, j * ALL, i * ALL);
             else if(so_long->map[i][j] == '0')
-                mlx_put_image_to_window(so_long->mlx, so_long->mlx_win,so_long->img_ptr5, j * ALL, i * ALL);
+                mlx_put_image_to_window(so_long->mlx, so_long->mlx_win,so_long->bg, j * ALL, i * ALL);
             else if(so_long->map[i][j] == 'C')
-                mlx_put_image_to_window(so_long->mlx, so_long->mlx_win,so_long->img_ptr2, j * ALL, i * ALL);
+                mlx_put_image_to_window(so_long->mlx, so_long->mlx_win,so_long->collect, j * ALL, i * ALL);
             j++;
         }
         i++;
@@ -57,9 +59,11 @@ void put_image(t_solong *so_long)
 int	key_hook(int keycode, t_solong *v)
 {
     print_move(v->event.move++);
-    mlx_clear_window(v->mlx,v->mlx_win);  
+    mlx_clear_window(v->mlx,v->mlx_win);
+    // if (v->event.collectible == 0)
+    //     mlx_put_image_to_window(v->mlx, v->mlx_win,v->open, v->x_e * ALL, v->y_e * ALL);
     if (keycode == 53)
-        printf("gome is over\n");
+        mlx_destroy_window(v->mlx,v->mlx_win);
     else if(keycode == 0 || keycode == 123)
         move_to_left(v);
     else if(keycode == 2 || keycode == 124)
@@ -71,10 +75,12 @@ int	key_hook(int keycode, t_solong *v)
     put_image(v);
 	return (0);
 }
-void event_key(t_solong *solong)
+void game(t_solong *so_long)
 {
-    get_positon(solong->map,&solong->event.y,&solong->event.x);
-    solong->event.move = 1;
-    solong->event.collectible = all_collect(solong->map);
-    mlx_key_hook(solong->mlx_win, key_hook, solong);
+    get_positon(so_long->map,&so_long->event.y,&so_long->event.x);
+    get_positon_exit(so_long->map,&so_long->y_e,&so_long->x_e);
+    so_long->event.move = 1;
+    so_long->event.collectible = all_collect(so_long->map);
+    put_image(so_long);
+    mlx_key_hook(so_long->mlx_win, key_hook, so_long);
 }
