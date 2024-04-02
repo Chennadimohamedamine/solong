@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:55:55 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/01 17:46:08 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/02 17:34:18 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <libc.h>
 
 # ifndef BUFFER_SIZE
 
@@ -44,11 +45,12 @@ typedef struct so_long
     void *mlx_win;
 	void	*img;
     void *walls;   
-    void *player;   
+    void *player[4];   
     void *collect;   
     void *close;   
     void *open;
     void *bg;
+    char direction;
     struct game event;
 } t_solong;
 
@@ -63,13 +65,13 @@ void print_move(int i);
 int all_collect(char **map);
 void get_positon_exit(char **s, int *x, int *y);
 int ft_close(t_solong *solong);
-
+void  game_over(t_solong *solong, char *str);
 void game(t_solong *solong);
 void move_to_right(t_solong *solong);
 void move_to_left(t_solong *solong);
 void move_to_down(t_solong *solong);
 void move_to_up(t_solong *solong);
-
+void player_direction(t_solong *solong, int i, int j);
 
 // * file use them to exuct
 char	*ft_strjoin(char *s1, char *s2);

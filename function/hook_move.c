@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 17:07:35 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/01 18:05:07 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/02 17:41:54 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 void move_to_up(t_solong *solong)
 {
+    solong->direction = 'u';
     if (solong->event.y <= 0|| solong->map[solong->event.y - 1][solong->event.x] == '1')
         return ;
-    if (solong->map[solong->event.y - 1][solong->event.x - 1] == 'E' && solong->event.collectible == 0)
+    if (solong->map[solong->event.y - 1][solong->event.x] == 'E' && solong->event.collectible == 0)
     {
-        solong->map[solong->event.y- 1][solong->event.x - 1] = 'P';
+        solong->map[solong->event.y- 1][solong->event.x] = 'P';
         solong->map[solong->event.y--][solong->event.x--] = '0';
-        ft_close(solong);
+        game_over(solong, "<><> you win <><>\n");
     }
     else if (solong->map[solong->event.y - 1][solong->event.x] == 'C')
     {
@@ -38,13 +39,14 @@ void move_to_up(t_solong *solong)
 }
 void move_to_left(t_solong *solong)
 {
+    solong->direction = 'l';
     if (solong->event.x <= 0 || solong->map[solong->event.y][solong->event.x - 1] == '1')
         return ;
-    if (solong->map[solong->event.y][solong->event.x - 1] == 'E' && solong->event.collectible == 0)
+    if (solong->map[solong->event.y][solong->event.x - 1 ] == 'E' && solong->event.collectible == 0)
     {
         solong->map[solong->event.y][solong->event.x - 1] = 'P';
         solong->map[solong->event.y][solong->event.x--] = '0';
-        ft_close(solong);
+        game_over(solong, "<><> you win <><>\n");
     }
     else if (solong->map[solong->event.y][solong->event.x - 1] == 'C')
     {
@@ -62,13 +64,14 @@ void move_to_left(t_solong *solong)
 }
 void move_to_right(t_solong *solong)
 {
+    solong->direction = 'r';
     if (solong->event.x >= solong->x || solong->map[solong->event.y][solong->event.x + 1] == '1')
         return ;
     if (solong->map[solong->event.y][solong->event.x + 1] == 'E' && solong->event.collectible == 0)
     {
         solong->map[solong->event.y][solong->event.x + 1] = 'P';
         solong->map[solong->event.y][solong->event.x++] = '0';
-        ft_close(solong);
+        game_over(solong, "<><> you win <><>\n");
     }
     else if (solong->map[solong->event.y][solong->event.x + 1] == 'C')
     {
@@ -88,11 +91,12 @@ void move_to_down(t_solong *solong)
 {
     if (solong->event.y >= solong->y || solong->map[solong->event.y + 1][solong->event.x] == '1')
         return ;
+    solong->direction = 'd';
     if (solong->map[solong->event.y + 1][solong->event.x] == 'E' && solong->event.collectible == 0)
     {
         solong->map[solong->event.y + 1][solong->event.x] = 'P';
         solong->map[solong->event.y++][solong->event.x] = '0';
-        ft_close(solong);
+       game_over(solong, "<><> you win <><>\n");
     }
     else if (solong->map[solong->event.y + 1][solong->event.x] == 'C')
     {
@@ -107,4 +111,5 @@ void move_to_down(t_solong *solong)
         solong->map[solong->event.y + 1][solong->event.x] = 'P';
         solong->map[solong->event.y++][solong->event.x] = '0';
     }
+    // printf("here >|\n");
 }
