@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 18:22:47 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/02 17:27:45 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/03 02:09:45 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ int ft_close(t_solong *solong)
     mlx_destroy_image(solong->mlx, solong->open);
     mlx_destroy_window(solong->mlx, solong->mlx_win);
     freememory(solong->y,solong->map);
+    write(1,"<><>> game over <<><>\n",22);
     exit(1);
 }

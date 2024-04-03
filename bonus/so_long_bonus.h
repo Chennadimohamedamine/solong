@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 17:55:55 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/03 02:04:31 by mochenna         ###   ########.fr       */
+/*   Created: 2024/04/02 22:05:04 by mochenna          #+#    #+#             */
+/*   Updated: 2024/04/03 02:34:12 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-#define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+#define SO_LONG_BONUS_H
 
 #include <mlx.h>
 #include <unistd.h>
@@ -54,43 +54,26 @@ typedef struct so_long
     struct game event;
 } t_solong;
 
-// *program
-char **lines(char *av,int *y);
-void put_image(t_solong *so_long);
-void convert_img(t_solong *img);
-void get_positon(char **s, int *x, int *y);
-void swap_value(char *s1,char *s2);
-// move and key and event
-void print_move(int i);
-int all_collect(char **map);
-void get_positon_exit(char **s, int *x, int *y);
-int ft_close(t_solong *solong);
-void  game_over(t_solong *solong, char *str);
-void game(t_solong *solong);
-void move_to_right(t_solong *solong);
-void move_to_left(t_solong *solong);
-void move_to_down(t_solong *solong);
-void move_to_up(t_solong *solong);
-void player_direction(t_solong *solong, int i, int j);
 
-// * file use them to exuct
+char	**lines(char *av, int *y);
 char	*ft_strjoin(char *s1, char *s2);
 char *readall(int fd);
 char	*ft_strdup(char *s1);
 char	**splitnewline(char *s, int *len, char l);
 int	ft_strlen(char *str);
-
-// ! parsing
 void checkall(char *s1, char **s,int i);
 int check_ens(char *s,char *s1);
 void invalid_game(char *s1);
-
-// * all about free memory
 void freememory(int c, char **v);
 void failer_malloc(char **s,char *s2 ,char *s1,int i);
 void error_handling(char *s, char **s1, int i);
 
-// ! temp
-void print(char **s);
 
+
+
+
+
+
+
+void print(char **s);
 #endif
