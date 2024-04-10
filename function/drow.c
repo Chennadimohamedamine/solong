@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 16:23:32 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/02 17:39:58 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/08 22:53:53 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,19 @@
 
 void convert_img(t_solong *img)
 {
-    int s;
-    int s1;
-    int f;
+    int s[2];
 
-    s = ALL;
-    s1 = 45;
-    f = 100;
-    img->walls = mlx_xpm_file_to_image(img->mlx,"img/walls1.xpm",&s,&s);
-    img->player[0] = mlx_xpm_file_to_image(img->mlx,"img/player_left.xpm",&s,&s);
-    img->player[1] = mlx_xpm_file_to_image(img->mlx,"img/player_up.xpm",&s,&s);
-    img->player[2] = mlx_xpm_file_to_image(img->mlx,"img/player_down.xpm",&s,&s);
-    img->player[3] = mlx_xpm_file_to_image(img->mlx,"img/player_.xpm",&s,&s);
-    img->collect = mlx_xpm_file_to_image(img->mlx,"img/collectible.xpm",&s1,&s1);
-    img->close = mlx_xpm_file_to_image(img->mlx,"img/close.xpm",&f,&f);
-    img->open = mlx_xpm_file_to_image(img->mlx,"img/open.xpm",&f,&f);
-    img->bg = mlx_xpm_file_to_image(img->mlx,"img/bg.xpm",&f,&f);
+    s[0] = ALL;
+    s[1] = 100;
+    img->walls = mlx_xpm_file_to_image(img->mlx,"img/walls1.xpm",&s[0],&s[0]);
+    img->player[0] = mlx_xpm_file_to_image(img->mlx,"img/player_left.xpm",&s[0],&s[0]);
+    img->player[1] = mlx_xpm_file_to_image(img->mlx,"img/player_up.xpm",&s[0],&s[0]);
+    img->player[2] = mlx_xpm_file_to_image(img->mlx,"img/player_down.xpm",&s[0],&s[0]);
+    img->player[3] = mlx_xpm_file_to_image(img->mlx,"img/player_.xpm",&s[0],&s[0]);
+    img->collect = mlx_xpm_file_to_image(img->mlx,"img/collectible.xpm",&s[0],&s[0]);
+    img->close = mlx_xpm_file_to_image(img->mlx,"img/close.xpm",&s[1],&s[1]);
+    img->open = mlx_xpm_file_to_image(img->mlx,"img/open.xpm",&s[1],&s[1]);
+    img->bg = mlx_xpm_file_to_image(img->mlx,"img/bg.xpm",&s[1],&s[1]);
 }
 void put_image(t_solong *so_long)
 {

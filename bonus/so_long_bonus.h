@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 22:05:04 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/03 02:34:12 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/10 22:16:13 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@
 #  define ALL 60
 # endif
 
+struct enamey
+{
+    int x;
+    int y;
+    int direction;
+};
 
 struct game
 {  
@@ -45,13 +51,15 @@ typedef struct so_long
     void *mlx_win;
 	void	*img;
     void *walls;   
-    void *player[4];   
+    void *player[4];  
+    void *enmy_[2]; 
     void *collect;   
     void *close;   
     void *open;
     void *bg;
     char direction;
     struct game event;
+    struct enamey enmy;
 } t_solong;
 
 
@@ -68,7 +76,26 @@ void freememory(int c, char **v);
 void failer_malloc(char **s,char *s2 ,char *s1,int i);
 void error_handling(char *s, char **s1, int i);
 
+// -------------------
+int all_collect(char **map);
+void put_img(t_solong *solong);
+void convert_img_(t_solong *img);
+void player_direction(t_solong *solong, int i, int j);
+int	key_hook(int key,t_solong *v);
+int	loop_hook(t_solong *v);
 
+void move_to_right(t_solong *solong);
+void move_to_left(t_solong *solong);
+void move_to_down(t_solong *solong);
+void move_to_up(t_solong *solong);
+void player_direction(t_solong *solong, int i, int j);
+int ft_close(t_solong *solong);
+
+// khass b img
+void drow_game(t_solong *solong);
+void get_positon_exit(char **s, int *x, int *y);
+void get_positon(char **s, int *x, int *y);
+int check_path(char **s);
 
 
 
