@@ -6,11 +6,11 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 18:08:27 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/26 01:48:39 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/10 22:30:09 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 int	ft_strlen(char *str)
 {
