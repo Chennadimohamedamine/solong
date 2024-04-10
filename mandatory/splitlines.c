@@ -6,11 +6,11 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 17:46:11 by mochenna          #+#    #+#             */
-/*   Updated: 2024/03/20 16:08:42 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/10 22:30:19 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 int	countletter(char *s, char l)
 {

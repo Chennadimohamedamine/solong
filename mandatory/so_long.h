@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:55:55 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/08 15:37:54 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/03 02:04:31 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ int	ft_strlen(char *str);
 void checkall(char *s1, char **s,int i);
 int check_ens(char *s,char *s1);
 void invalid_game(char *s1);
-int check_path(char **s);
 
 // * all about free memory
 void freememory(int c, char **v);

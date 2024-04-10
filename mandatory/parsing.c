@@ -6,11 +6,11 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 17:52:18 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/08 15:39:29 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/10 22:30:12 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 int	emty(char *s)
 {

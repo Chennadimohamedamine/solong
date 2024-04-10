@@ -6,11 +6,11 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 17:07:35 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/06 02:47:27 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/10 22:30:07 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 void move_to_up(t_solong *solong)
 {
@@ -89,9 +89,9 @@ void move_to_right(t_solong *solong)
 }
 void move_to_down(t_solong *solong)
 {
-    solong->direction = 'd';
     if (solong->event.y >= solong->y || solong->map[solong->event.y + 1][solong->event.x] == '1')
         return ;
+    solong->direction = 'd';
     if (solong->map[solong->event.y + 1][solong->event.x] == 'E' && solong->event.collectible == 0)
     {
         solong->map[solong->event.y + 1][solong->event.x] = 'P';
