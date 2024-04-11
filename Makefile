@@ -13,9 +13,10 @@ FILEBONUS = bonus/so_long_bonus.c \
             mandatory/parsing.c \
             mandatory/validgame.c \
 			mandatory/utils.c \
+			bonus/utils.c \
 			bonus/drow_game.c \
 			bonus/function_utils.c \
-			bonus/drow_game.c \
+			bonus/move_hooks.c \
 			
 
 

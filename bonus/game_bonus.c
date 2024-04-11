@@ -6,13 +6,13 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:43:17 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/11 16:48:34 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/11 17:24:29 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void game_bonus(t_solong *solong)
-{
-    p
-}
+// void game_bonus(t_solong *solong)
+// {
+//     p
+// }

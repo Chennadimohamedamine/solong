@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 22:05:04 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/11 16:59:38 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/11 21:21:37 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ typedef struct so_long
     void *mlx;
     void *mlx_win;
 	void	*img;
-    void *walls;   
+    void *walls;
+    void *enms[2]; 
     void *player[4];   
     void *collect;   
     void *close;   
@@ -89,5 +90,18 @@ void print_move(int i);
 void convert_image(t_solong *img);
 void put_img(t_solong *so_long);
 int	key_hooks(int keycode, t_solong *v);
+void exit_status(t_solong *so_long, int i, int j);
+void move_enmy(t_solong *solong, int i, int j);
+void player_direction(t_solong *solong, int i, int j);
+void make_enmy(t_solong *solong);
+int loop_hook(t_solong *solong);
 
+//* ================ moves ================
+void move_to_left(t_solong *solong);
+void move_to_up(t_solong *solong);
+void move_to_right(t_solong *solong);
+void move_to_down(t_solong *solong);
+void get_positon_exit(char **s, int *x, int *y);
+void get_positon(char **s, int *x, int *y);
+int all_collect(char **map);
 #endif
