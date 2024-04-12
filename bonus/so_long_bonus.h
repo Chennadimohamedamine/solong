@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 22:05:04 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/11 21:21:37 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/12 17:44:56 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@
 #  define BUFFER_SIZE 10
 #  define ALL 60
 # endif
+
+struct animation_enum 
+{
+    int x[5];
+    int y[5];
+};
 
 struct enmy
 {
@@ -60,6 +66,7 @@ typedef struct so_long
     char direction;
     struct game event;
     struct enmy enm;
+    struct animation_enum anim;
 } t_solong;
 
 // ! ================== error =================
@@ -104,4 +111,5 @@ void move_to_down(t_solong *solong);
 void get_positon_exit(char **s, int *x, int *y);
 void get_positon(char **s, int *x, int *y);
 int all_collect(char **map);
+void  game_over(t_solong *solong, char *str);
 #endif
