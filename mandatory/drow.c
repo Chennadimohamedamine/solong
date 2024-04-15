@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 16:23:32 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/11 21:13:36 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/15 19:35:46 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void	put_image(t_solong *so_long)
 }
 int	key_hook(int keycode, t_solong *v)
 {
-    print_move(v->event.move++);
     mlx_clear_window(v->mlx, v->mlx_win);
     if (keycode == 53)
         ft_close(v);

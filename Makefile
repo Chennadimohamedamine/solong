@@ -10,7 +10,7 @@ MANDATORY = mandatory/utils.c \
 FILEBONUS = bonus/so_long_bonus.c \
             mandatory/splitlines.c \
             mandatory/joinstr.c \
-            mandatory/parsing.c \
+            bonus/parsing_bonus.c \
             mandatory/validgame.c \
 			mandatory/utils.c \
 			bonus/utils.c \
