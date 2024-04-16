@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 19:49:38 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/15 19:51:19 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/16 17:17:25 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,11 @@ int all_collect(char **map)
     }
     return (c);
 }
-void convert_number(int i)
+void print_move(t_solong *solong)
 {
-   if (i > 9)
-        convert_number(i / 10);
-    write(1,&"0123456789"[i % 10],1);
-}
-void print_move(int i)
-{
-    write(1,"move number : ",15);
-    convert_number(i);
-    write(1,"\n",1);
+    char *str;
+
+    str = ft_itoa(solong->event.move++);
+    mlx_string_put(solong->mlx,solong->mlx_win,15,15,0xFFFFFFFF,"hey");
+    free(str);
 }

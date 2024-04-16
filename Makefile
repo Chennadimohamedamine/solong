@@ -8,15 +8,15 @@ MANDATORY = mandatory/utils.c \
             mandatory/so_long.c \
 
 FILEBONUS = bonus/so_long_bonus.c \
-            mandatory/splitlines.c \
-            mandatory/joinstr.c \
+            bonus/splitlines_bonus.c \
+            bonus/joinstr_bonus.c \
             bonus/parsing_bonus.c \
-            mandatory/validgame.c \
-			mandatory/utils.c \
-			bonus/utils.c \
-			bonus/drow_game.c \
+            bonus/validgame_bonus.c \
+			bonus/utils_bonus.c \
 			bonus/function_utils.c \
-			bonus/move_hooks.c \
+			bonus/game_bonus.c \
+			bonus/ft_itoa_bonus.c \
+			bonus/move_hooks_bonus.c \
 			
 
 

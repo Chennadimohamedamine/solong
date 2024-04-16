@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 22:05:04 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/14 22:28:46 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/16 22:31:43 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ struct game
     int x;
     int y;
     int move;
+    char  *move_str;
     int collectible;
 };
 typedef struct so_long
@@ -91,8 +92,8 @@ void invalid_game(char *s1);
 
 // ! need for code
 
-void print_move(int i);
-
+void print_move(t_solong *solong);
+char	*ft_itoa(int n);
 // * ============= game ==============
 void convert_image(t_solong *img);
 void put_img(t_solong *so_long);
@@ -114,4 +115,11 @@ int all_collect(char **map);
 void  game_over(t_solong *solong, char *str);
 void animation(t_solong *solong);
 int ft_close_(t_solong *solong);
+
+
+
+
+
+void print(char **s);
+
 #endif

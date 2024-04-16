@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 22:04:37 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/11 21:21:15 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/16 22:34:48 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void game_bonus(t_solong *solong)
     get_positon(solong->map, &solong->event.y, &solong->event.x);
     get_positon_exit(solong->map, &solong->y_e, &solong->x_e);
     solong->event.collectible = all_collect(solong->map);
-    make_enmy(solong);
     solong->enm.dir = 0;
     solong->direction = 'r';
     solong->event.move = 0;
+    make_enmy(solong);
     convert_image(solong);
     put_img(solong);
     mlx_loop_hook(solong->mlx, &loop_hook, solong);
