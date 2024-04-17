@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:43:17 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/17 19:28:49 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/17 19:31:54 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ void convert_image(t_solong *img)
     s1[0] = 45;
     s1[1] = 40;
     f = 100;
-    if (img->event.copy_map == NULL)
-        printf("yes\n");
     img->enms[0] = mlx_xpm_file_to_image(img->mlx,"img/go_left.xpm",&s,&s);
     img->enms[1] = mlx_xpm_file_to_image(img->mlx,"img/go_right.xpm",&s,&s);
     img->walls = mlx_xpm_file_to_image(img->mlx,"img/walls1.xpm",&s,&s);
