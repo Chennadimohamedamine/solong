@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:43:17 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/16 22:32:36 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/17 19:28:49 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void convert_image(t_solong *img)
     s1[0] = 45;
     s1[1] = 40;
     f = 100;
+    if (img->event.copy_map == NULL)
+        printf("yes\n");
     img->enms[0] = mlx_xpm_file_to_image(img->mlx,"img/go_left.xpm",&s,&s);
     img->enms[1] = mlx_xpm_file_to_image(img->mlx,"img/go_right.xpm",&s,&s);
     img->walls = mlx_xpm_file_to_image(img->mlx,"img/walls1.xpm",&s,&s);
@@ -64,7 +66,6 @@ void put_img(t_solong *so_long)
 }
 int	key_hooks(int keycode, t_solong *v)
 {
-    print(v->map);
     if (keycode == 53)
         game_over(v,"<><> game over <><>\n");
     mlx_clear_window(v->mlx,v->mlx_win);
@@ -77,7 +78,6 @@ int	key_hooks(int keycode, t_solong *v)
     else if(keycode == 1 || keycode == 125)
         move_to_down(v);
     put_img(v);
-    print(v->map);
 	return (0);
 }
 int loop_hook(t_solong *solong)
@@ -88,10 +88,11 @@ int loop_hook(t_solong *solong)
     else 
         solong->enm.dir = 1;
     put_img(solong); 
+    mlx_hook(solong->mlx_win, 02, 0, key_hooks, solong);
     mlx_hook(solong->mlx_win, 17, 0, ft_close_, solong);
-    mlx_hook(solong->mlx_win, 02,(1L<<0), key_hooks, solong);
     solong->event.move_str = ft_itoa(solong->event.move);
     mlx_string_put(solong->mlx,solong->mlx_win, 15, 15, 0xFFFFFFFF, solong->event.move_str);
     free(solong->event.move_str);
+    solong->event.move_str = NULL; 
     return (0);
 }

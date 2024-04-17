@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:13:02 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/16 22:17:16 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/17 18:51:36 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,31 @@ void move_enmy(t_solong *solong, int i, int j)
 }
 void make_enmy(t_solong *solong)
 {
-    solong->anim.x[0] = 17;
-    solong->anim.y[0] = solong->y - 2;
-    solong->anim.x[1] = 4;
-    solong->anim.y[1] = 1;
-    solong->anim.x[2] = solong->x - 2;
-    solong->anim.y[2] = 1;
-    solong->anim.x[3] = solong->x - 2;
-    solong->anim.y[3] = solong->y - 2;
-    solong->anim.x[4] = solong->x / 2;
-    solong->anim.y[4] = 1;
-    solong->map[solong->anim.y[0]][solong->anim.x[0]] = 'N';
-    solong->map[solong->anim.y[1]][solong->anim.x[1]] = 'N';
-    solong->map[solong->anim.y[2]][solong->anim.x[2]] = 'N';
-    solong->map[solong->anim.y[3]][solong->anim.x[3]] = 'N';
-    solong->map[solong->anim.y[3]][solong->anim.x[3]] = 'N';
-    
+    if (solong->map[solong->y - 2][15] != '1' 
+        || solong->map[solong->y - 2][15] != 'E'
+        || solong->map[solong->y - 2][15] != 'C'
+        || solong->map[solong->y - 2][15] != '0')
+    solong->map[solong->y - 2][17] = 'N';
+    if (solong->map[1][4] != '1' 
+        || solong->map[1][4] != 'E'
+        || solong->map[1][4] != 'C'
+        || solong->map[1][4] != '0')
+    solong->map[1][4] = 'N';
+    if (solong->map[1][solong->x - 2] != '1' 
+        || solong->map[1][solong->x - 2] != 'E'
+        || solong->map[1][solong->x - 2] != 'C'
+        || solong->map[1][solong->x - 2] != '0')
+    solong->map[1][solong->x - 2] = 'N';
+    if (solong->map[solong->y - 2][solong->x - 2] != '1' 
+        || solong->map[solong->y - 2][solong->x - 2] != 'E'
+        || solong->map[solong->y - 2][solong->x - 2] != 'C'
+        || solong->map[solong->y - 2][solong->x - 2] != '0')
+    solong->map[solong->y - 2][solong->x - 2] = 'N';
+    if (solong->map[1][solong->x / 2 + 3] != '1' 
+        || solong->map[1][solong->x / 2 + 3] != 'E'
+        || solong->map[1][solong->x / 2 + 3] != 'C'
+        || solong->map[1][solong->x / 2  + 3] != '0')
+    solong->map[1][solong->x / 2 + 3] = 'N';
 }
 int ft_close_(t_solong *solong)
 {
@@ -70,6 +79,7 @@ int ft_close_(t_solong *solong)
     mlx_destroy_window(solong->mlx, solong->mlx_win);
     freememory(solong->y,solong->map);
     write(1,"<><>> game over <<><>\n",22);
-    free(solong->event.move_str);
+    if (solong->event.move_str != NULL)
+        free(solong->event.move_str);
     exit(0);
 }

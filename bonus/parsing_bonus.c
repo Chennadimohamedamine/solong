@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:32:37 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/16 16:33:37 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/17 19:19:15 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,13 +78,12 @@ void	checkall(char *s1, char **s, int i)
 	check_gui(s1, s, i);
 }
 
-char	**lines(char *av, int *y)
+char	**lines(t_solong *solong, char *av, int *y)
 {
 	char	**lines;
-	char	*s;
 	int		i;
 
-	if (check_ens(av + (ft_strlen(av) - 4), ".ber") != 0)
+	if (check_ens(av + (ft_strlen(av) - 4), ".ber") != 0 || ft_strlen(av) < 4)
 	{
 		write(2, "Error\n", 6);
 		exit(1);
@@ -95,12 +94,11 @@ char	**lines(char *av, int *y)
 		write(2,"<< can not open this file >>\n",29);
 		exit(1);
 	}
-	s = readall(i);
+	solong->event.copy_map= readall(i);
 	close(i);
-	lines = splitnewline(s, &i, '\n');
-	checkall(s, lines, i);
-	invalid_game(s);
+	lines = splitnewline(solong->event.copy_map, &i, '\n');
+	checkall(solong->event.copy_map, lines, i);
+	invalid_game(solong->event.copy_map);
 	*y = i;
-	free(s);
 	return (lines);
 }

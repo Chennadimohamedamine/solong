@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 17:13:52 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/16 17:14:55 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/17 18:34:07 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,8 @@ char	*ft_itoa(int n)
 {
 	char	*r;
 	int		len;
-	int		c;
 
-	c = 0;
-	if (n < 0)
-	{
-		c = 1;
-		n *= -1;
-	}
-	len = coutnumber(n) + c;
+	len = coutnumber(n);
 	r = (char *)malloc(len + 1);
 	if (r == NULL)
 		return (NULL);
@@ -49,7 +42,5 @@ char	*ft_itoa(int n)
 		r[len-- - 1] = (n % 10) + '0';
 		n = n / 10;
 	}
-	if (c == 1)
-		r[0] = '-';
 	return (r);
 }

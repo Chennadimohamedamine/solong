@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 22:05:04 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/16 22:31:43 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/17 19:14:49 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,6 @@
 #  define BUFFER_SIZE 10
 #  define ALL 60
 # endif
-
-struct animation_enum 
-{
-    int x[5];
-    int y[5];
-};
-
 struct enmy
 {
     int p_x;
@@ -44,6 +37,7 @@ struct game
     int x;
     int y;
     int move;
+    char *copy_map;
     char  *move_str;
     int collectible;
 };
@@ -67,7 +61,6 @@ typedef struct so_long
     char direction;
     struct game event;
     struct enmy enm;
-    struct animation_enum anim;
 } t_solong;
 
 // ! ================== error =================
@@ -77,7 +70,7 @@ void error_handling(char *s, char **s1, int i);
 
 // ! ============= ==========  mke lines (read and split ) ===========
 
-char	**lines(char *av, int *y);
+char	**lines(t_solong*solong, char *av, int *y);
 char	*ft_strjoin(char *s1, char *s2);
 char *readall(int fd);
 char	*ft_strdup(char *s1);
@@ -89,6 +82,7 @@ int	ft_strlen(char *str);
 void checkall(char *s1, char **s,int i);
 int check_ens(char *s,char *s1);
 void invalid_game(char *s1);
+void check_validgame(t_solong *solong);
 
 // ! need for code
 
@@ -115,7 +109,6 @@ int all_collect(char **map);
 void  game_over(t_solong *solong, char *str);
 void animation(t_solong *solong);
 int ft_close_(t_solong *solong);
-
 
 
 

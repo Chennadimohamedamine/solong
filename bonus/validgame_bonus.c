@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 19:46:54 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/16 22:31:21 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/17 18:01:35 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,10 +107,4 @@ void invalid_game(char *s1)
     if(check_path(map))
         error_handling(s1,map,i);
     freememory(i,map);
-}
-void print(char **s)
-{
-    int i = 0;
-    while(s[i])
-        printf("lines %s\n",s[i++]);
 }
