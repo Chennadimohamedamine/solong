@@ -4,6 +4,7 @@ MANDATORY = mandatory/utils.c \
             mandatory/parsing.c \
             mandatory/validgame.c \
             mandatory/drow.c \
+            mandatory/drow_.c \
             mandatory/hook_move.c \
             mandatory/so_long.c \
 

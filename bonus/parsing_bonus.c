@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:32:37 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/17 19:19:15 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/18 02:38:00 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	check_gui(char *s1, char **s, int i)
 void	checkall(char *s1, char **s, int i)
 {
 	int	j;
+
 	if (i < 3 || s1[0] == '\n')
 		error_handling(s1, s, i);
 	j = 0;
@@ -71,7 +72,8 @@ void	checkall(char *s1, char **s, int i)
 	{
 		if (s1[j] == '\n' && (s1[j + 1] == '\n' || s1[j + 1] == 0))
 			error_handling(s1, s, i);
-		if (s1[j] != 'P' && s1[j] != '0' && s1[j] != '1'  && s1[j] != 'C' && s1[j] != 'E' && s1[j] != '\n')
+		if (s1[j] != 'P' && s1[j] != '0' && s1[j] != '1'
+			&& s1[j] != 'C' && s1[j] != 'E' && s1[j] != '\n')
 			error_handling(s1, s, i);
 		j++;
 	}
@@ -91,10 +93,10 @@ char	**lines(t_solong *solong, char *av, int *y)
 	i = open(av, O_RDONLY);
 	if (i < 0)
 	{
-		write(2,"<< can not open this file >>\n",29);
+		write(2, "<< can not open this file >>\n", 29);
 		exit(1);
 	}
-	solong->event.copy_map= readall(i);
+	solong->event.copy_map = readall(i);
 	close(i);
 	lines = splitnewline(solong->event.copy_map, &i, '\n');
 	checkall(solong->event.copy_map, lines, i);
