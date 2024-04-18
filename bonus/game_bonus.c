@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:43:17 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/18 01:51:31 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/18 17:01:17 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,8 @@ void	put_img(t_solong *so_long)
 				exit_status(so_long, i, j);
 			else if (so_long->map[i][j] == 'N')
 				move_enmy(so_long, i, j);
-			else if (so_long->map[i][j] == '0')
-				mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->bg, j * ALL, i * ALL);
-			else if (so_long->map[i][j] == 'C')
-				mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->collect, j * ALL, i * ALL);
+			else if (so_long->map[i][j] == '0' || so_long->map[i][j] == 'C')
+				put_bg_coll(so_long, i, j);
 			j++;
 		}
 	}

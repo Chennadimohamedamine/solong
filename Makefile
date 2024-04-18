@@ -18,6 +18,7 @@ FILEBONUS = bonus/so_long_bonus.c \
 			bonus/game_bonus.c \
 			bonus/ft_itoa_bonus.c \
 			bonus/move_hooks_bonus.c \
+			bonus/movehooks_bonus.c \
 			
 
 

@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 22:05:04 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/18 02:32:03 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/18 17:01:29 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,6 @@ int		all_collect(char **map);
 void	game_over(t_solong *solong, char *str);
 void	animation(t_solong *solong);
 int		ft_close_(t_solong *solong);
+void	exit_player(t_solong *solong, int y, int x);
+void	put_bg_coll(t_solong *so_long, int i, int j);
 #endif
