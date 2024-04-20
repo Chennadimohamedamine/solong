@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 17:52:18 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/18 02:23:26 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/20 02:35:18 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,8 @@ char	**lines(char *av, int *y)
 		exit(1);
 	}
 	s = readall(i);
+	if (!s)
+		return (NULL);
 	close(i);
 	lines = splitnewline(s, &i, '\n');
 	checkall(s, lines, i);

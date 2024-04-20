@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 18:22:47 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/18 01:59:33 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/20 02:49:09 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	convert_number(int i)
 
 void	print_move(int i)
 {
-	write(1, "move number : ", 15);
+	write(1, "move number => ", 15);
 	convert_number(i);
 	write(1, "\n", 1);
 }
@@ -73,6 +73,7 @@ int	ft_close(t_solong *solong)
 	mlx_destroy_image(solong->mlx, solong->close);
 	mlx_destroy_image(solong->mlx, solong->open);
 	mlx_destroy_window(solong->mlx, solong->mlx_win);
+	free(solong->mlx);
 	freememory(solong->y, solong->map);
 	write(1, "<><>> game over <<><>\n", 22);
 	exit(1);
