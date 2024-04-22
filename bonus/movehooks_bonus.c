@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:43:46 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/22 04:23:45 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/23 00:07:19 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,31 @@ void	put_bg_coll(t_solong *so_long, int i, int j)
 			so_long->mlx_win, so_long->collect, j * ALL, i * ALL);
 }
 
- void animation(t_solong *solong)
- {
- 	int i;
-	int y;
-	int x;
+void	go_x(t_solong *solong, int i, int *y, int *x)
+{
+	if (solong->enm.e_dir[i] == 0)
+		go_to_right(solong, i, y, x);
+	else if (solong->enm.e_dir[i] == 1)
+		go_to_left(solong, i, y, x);
+	else if (solong->enm.e_dir[i] == 2)
+		go_to_up(solong, i, y, x);
+	else if (solong->enm.e_dir[i] == 3)
+		go_to_down(solong, i, y, x);
+}
+
+void	animation(t_solong *solong)
+{
+	int	i;
 
 	i = 0;
-	while (i < 3)
+	mlx_clear_window(solong->mlx, solong->mlx_win);
+	while (i < 2)
 	{
-		x = solong->enm.e_x[i];
-		y = solong->enm.e_y[i];
-		if (solong->enm.d == 'l')
-			go_to_left(solong, &solong->enm.e_y[i], &solong->enm.e_x[i]);
+		if (i % 2 == 0)
+			go_x(solong, i, &solong->enm.e_y[i], &solong->enm.e_x[i]);
 		else
-
-			go_to_right(solong, &solong->enm.e_y[i], &solong->enm.e_x[i]);
-		
+			go_x(solong, i, &solong->enm.e_y[i], &solong->enm.e_x[i]);
 		i++;
 	}
+	put_img(solong);
 }

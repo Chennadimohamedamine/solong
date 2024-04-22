@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 02:05:15 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/18 02:20:38 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/22 23:57:06 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,12 @@ void	player_direction(t_solong *solong, int i, int j)
 	else if (solong->direction == 'l')
 		mlx_put_image_to_window(solong->mlx,
 			solong->mlx_win, solong->player[0], j * ALL, i * ALL);
-	else
+	else if (solong->direction == 'u')
 		mlx_put_image_to_window(solong->mlx,
-			solong->mlx_win, solong->player[3], j * ALL, i * ALL);
+			solong->mlx_win, solong->player[1], j * ALL, i * ALL);
+	else if (solong->direction == 'd')
+		mlx_put_image_to_window(solong->mlx,
+			solong->mlx_win, solong->player[2], j * ALL, i * ALL);
 }
 
 int	key_hook(int keycode, t_solong *v)

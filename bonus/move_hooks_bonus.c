@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:30:50 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/22 03:53:34 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/23 00:15:02 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,10 +129,10 @@ void	game_over(t_solong *solong, char *str)
 		write(1, &str[i++], 1);
 	mlx_destroy_image(solong->mlx, solong->enms[0]);
 	mlx_destroy_image(solong->mlx, solong->enms[1]);
-	mlx_destroy_image(solong->mlx, solong->player[0]);
-	mlx_destroy_image(solong->mlx, solong->player[1]);
-	mlx_destroy_image(solong->mlx, solong->player[2]);
-	mlx_destroy_image(solong->mlx, solong->player[3]);
+	mlx_destroy_image(solong->mlx, solong->p[0]);
+	mlx_destroy_image(solong->mlx, solong->p[1]);
+	mlx_destroy_image(solong->mlx, solong->p[2]);
+	mlx_destroy_image(solong->mlx, solong->p[3]);
 	mlx_destroy_image(solong->mlx, solong->walls);
 	mlx_destroy_image(solong->mlx, solong->close);
 	mlx_destroy_image(solong->mlx, solong->open);

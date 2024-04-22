@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 19:46:54 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/21 02:47:40 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/23 00:20:20 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,9 @@ int	check_path(char **s)
 		j = 0;
 		while (s[i][j])
 		{
-			if (s[i][j] != '1' && s[i][j] != 'F')
+			if (s[i][j] == '0')
+				j++;
+			else if (s[i][j] != '1' && s[i][j] != 'F')
 				return (1);
 			j++;
 		}

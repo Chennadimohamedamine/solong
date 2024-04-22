@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 22:04:37 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/22 04:17:17 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/23 00:24:10 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	game_bonus(t_solong *solong)
 	solong->event.x = dir[1];
 	get_positon_exit(solong->map, &solong->y_e, &solong->x_e);
 	solong->enm.dir = 0;
-	solong->enm.d = 'l';
+	solong->enm.e_dir[0] = 0;
 	solong->direction = 'r';
 	solong->event.move = 0;
 	make_enmy(solong);

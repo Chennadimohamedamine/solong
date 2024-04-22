@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:43:17 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/22 04:24:38 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/23 00:05:17 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,15 @@ void	convert_image(t_solong *img)
 	s1[0] = 45;
 	s1[1] = 40;
 	f = 100;
-	img->enms[0] = mlx_xpm_file_to_image(img->mlx, "textures/go_left.xpm", &s, &s);
-	img->enms[1] = mlx_xpm_file_to_image(img->mlx, "textures/go_right.xpm", &s, &s);
+	img->enms[0]
+		= mlx_xpm_file_to_image(img->mlx, "textures/go_left.xpm", &s, &s);
+	img->enms[1]
+		= mlx_xpm_file_to_image(img->mlx, "textures/go_right.xpm", &s, &s);
 	img->walls = mlx_xpm_file_to_image(img->mlx, "textures/walls1.xpm", &s, &s);
-	img->player[0] = mlx_xpm_file_to_image(img->mlx, "textures/to_left.xpm", &s, &s);
-	img->player[1] = mlx_xpm_file_to_image(img->mlx, "textures/to_up.xpm", &s, &s);
-	img->player[2] = mlx_xpm_file_to_image(img->mlx, "textures/to_down.xpm", &s, &s);
-	img->player[3]
+	img->p[0] = mlx_xpm_file_to_image(img->mlx, "textures/to_left.xpm", &s, &s);
+	img->p[1] = mlx_xpm_file_to_image(img->mlx, "textures/to_up.xpm", &s, &s);
+	img->p[2] = mlx_xpm_file_to_image(img->mlx, "textures/to_down.xpm", &s, &s);
+	img->p[3]
 		= mlx_xpm_file_to_image(img->mlx, "textures/to_right.xpm", &s, &s);
 	img->collect
 		= mlx_xpm_file_to_image(img->mlx, "textures/coll.xpm", &s1[1], &s1[1]);
@@ -83,13 +85,11 @@ int	key_hooks(int keycode, t_solong *v)
 
 int	loop_hook(t_solong *solong)
 {
-	static int i;
+	static int	i;
 
-	if (i == 50)
+	if (i == 15)
 	{
-		mlx_clear_window(solong->mlx, solong->mlx_win);
 		animation(solong);
-		put_img(solong);
 		i = 0;
 	}
 	i++;

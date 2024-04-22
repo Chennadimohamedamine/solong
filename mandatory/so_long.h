@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:55:55 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/18 02:13:29 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/23 00:43:07 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include <libc.h>
 
 # ifndef BUFFER_SIZE
-
 #  define BUFFER_SIZE 10
 #  define ALL 60
 # endif
@@ -57,7 +55,6 @@ char	**lines(char *av, int *y);
 void	put_image(t_solong *so_long);
 void	convert_img(t_solong *img);
 void	get_positon(char **s, int *x, int *y);
-void	swap_value(char *s1, char *s2);
 void	print_move(int i);
 int		all_collect(char **map);
 void	get_positon_exit(char **s, int *x, int *y);
