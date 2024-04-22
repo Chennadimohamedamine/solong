@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 19:46:54 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/18 01:36:48 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/21 02:47:40 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,7 @@ int	check_path(char **s)
 		j = 0;
 		while (s[i][j])
 		{
-			if (s[i][j] != 'P' && s[i][j] != '1' && s[i][j] != 'F'
-				&& s[i][j] != '0' && s[i][j] != 'E')
+			if (s[i][j] != '1' && s[i][j] != 'F')
 				return (1);
 			j++;
 		}
@@ -88,7 +87,7 @@ int	check_path(char **s)
 void	flood_fill(char **map, int y, int x, int row)
 {
 	if (y < 0 || y >= ft_strlen(map[0]) || x < 0 || x >= row
-		|| map[x][y] == '1' || map[x][y] == 'F' || map[x][y] == 'E')
+		|| map[x][y] == '1' || map[x][y] == 'F')
 		return ;
 	map[x][y] = 'F';
 	flood_fill(map, y - 1, x, row);

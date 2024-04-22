@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 22:05:04 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/18 17:01:29 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/22 04:16:17 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <stdio.h>
 
 # ifndef BUFFER_SIZE
 
@@ -26,9 +27,12 @@
 
 struct s_enmy
 {
-	int	p_x;
-	int	p_y;
-	int	dir;
+	int		p_x;
+	int		p_y;
+	int		dir;
+	char	d;
+	int		e_x[3];
+	int		e_y[3];
 };
 
 struct s_game
@@ -97,4 +101,8 @@ void	animation(t_solong *solong);
 int		ft_close_(t_solong *solong);
 void	exit_player(t_solong *solong, int y, int x);
 void	put_bg_coll(t_solong *so_long, int i, int j);
+void	go_to_up(t_solong *solong, int *y, int *x);
+void	go_to_down(t_solong *solong, int *y, int *x);
+void	go_to_left(t_solong *solong, int *y, int *x);
+void	go_to_right(t_solong *solong, int *y, int *x);
 #endif

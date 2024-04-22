@@ -19,9 +19,8 @@ FILEBONUS = bonus/so_long_bonus.c \
 			bonus/ft_itoa_bonus.c \
 			bonus/move_hooks_bonus.c \
 			bonus/movehooks_bonus.c \
+			bonus/move_enamy.c
 			
-
-
 OBJFILE = $(MANDATORY:%.c=%.o)
 OBJFILEBONUS = $(FILEBONUS:%.c=%.o)
 NAME = so_long

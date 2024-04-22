@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:43:17 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/20 02:37:51 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/22 04:24:38 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,19 @@ void	convert_image(t_solong *img)
 	s1[0] = 45;
 	s1[1] = 40;
 	f = 100;
-	img->enms[0] = mlx_xpm_file_to_image(img->mlx, "img/go_left.xpm", &s, &s);
-	img->enms[1] = mlx_xpm_file_to_image(img->mlx, "img/go_right.xpm", &s, &s);
-	img->walls = mlx_xpm_file_to_image(img->mlx, "img/walls1.xpm", &s, &s);
-	img->player[0] = mlx_xpm_file_to_image(img->mlx, "img/to_left.xpm", &s, &s);
-	img->player[1] = mlx_xpm_file_to_image(img->mlx, "img/to_up.xpm", &s, &s);
-	img->player[2] = mlx_xpm_file_to_image(img->mlx, "img/to_down.xpm", &s, &s);
+	img->enms[0] = mlx_xpm_file_to_image(img->mlx, "textures/go_left.xpm", &s, &s);
+	img->enms[1] = mlx_xpm_file_to_image(img->mlx, "textures/go_right.xpm", &s, &s);
+	img->walls = mlx_xpm_file_to_image(img->mlx, "textures/walls1.xpm", &s, &s);
+	img->player[0] = mlx_xpm_file_to_image(img->mlx, "textures/to_left.xpm", &s, &s);
+	img->player[1] = mlx_xpm_file_to_image(img->mlx, "textures/to_up.xpm", &s, &s);
+	img->player[2] = mlx_xpm_file_to_image(img->mlx, "textures/to_down.xpm", &s, &s);
 	img->player[3]
-		= mlx_xpm_file_to_image(img->mlx, "img/to_right.xpm", &s, &s);
+		= mlx_xpm_file_to_image(img->mlx, "textures/to_right.xpm", &s, &s);
 	img->collect
-		= mlx_xpm_file_to_image(img->mlx, "img/coll.xpm", &s1[1], &s1[1]);
-	img->close = mlx_xpm_file_to_image(img->mlx, "img/close.xpm", &f, &f);
-	img->open = mlx_xpm_file_to_image(img->mlx, "img/open.xpm", &f, &f);
-	img->bg = mlx_xpm_file_to_image(img->mlx, "img/bg.xpm", &f, &f);
+		= mlx_xpm_file_to_image(img->mlx, "textures/coll.xpm", &s1[1], &s1[1]);
+	img->close = mlx_xpm_file_to_image(img->mlx, "textures/close.xpm", &f, &f);
+	img->open = mlx_xpm_file_to_image(img->mlx, "textures/open.xpm", &f, &f);
+	img->bg = mlx_xpm_file_to_image(img->mlx, "textures/bg.xpm", &f, &f);
 }
 
 void	put_img(t_solong *so_long)
@@ -83,6 +83,16 @@ int	key_hooks(int keycode, t_solong *v)
 
 int	loop_hook(t_solong *solong)
 {
+	static int i;
+
+	if (i == 50)
+	{
+		mlx_clear_window(solong->mlx, solong->mlx_win);
+		animation(solong);
+		put_img(solong);
+		i = 0;
+	}
+	i++;
 	mlx_clear_window(solong->mlx, solong->mlx_win);
 	if (solong->enm.dir == 1)
 		solong->enm.dir = 0;

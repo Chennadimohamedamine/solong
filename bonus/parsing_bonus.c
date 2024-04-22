@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:32:37 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/18 02:38:00 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/20 18:01:38 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ char	**lines(t_solong *solong, char *av, int *y)
 		exit(1);
 	}
 	solong->event.copy_map = readall(i);
+	if (!solong->event.copy_map)
+		return (NULL);
 	close(i);
 	lines = splitnewline(solong->event.copy_map, &i, '\n');
 	checkall(solong->event.copy_map, lines, i);
