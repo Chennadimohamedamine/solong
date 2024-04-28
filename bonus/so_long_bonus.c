@@ -6,21 +6,12 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 22:04:37 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/28 00:54:15 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/28 19:03:47 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void print(char **str)
-{
-	int i = 0;
-	while (str[i])
-	{
-        printf(" lines == >%s\n", str[i]);
-        i++;
-    }
-}
 void	game_bonus(t_solong *solong)
 {
 	int	dir[2];

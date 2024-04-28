@@ -6,12 +6,11 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 17:23:00 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/28 00:06:28 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/28 19:03:20 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
 
 void	get_positon(char **s, int *x, int *y)
 {

@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:13:02 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/28 00:34:15 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/28 19:04:22 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,14 @@ void	handling_enumy(t_solong *solong)
 {
 	solong->enm.length_enmy = lenght_enmy(solong->map);
 	if (solong->enm.length_enmy == 0)
-		handling_enumy_error(solong, "you have error << need put enumy >>");
+		handling_enumy_error(solong, "you have error << need put enumy >>\n");
 	else if (solong->enm.length_enmy > 4)
-		handling_enumy_error(solong, "oops! my code dont run greater 4 enumys");
+		handling_enumy_error(solong,
+			"oops! my code dont run greater 4 enumys\n");
 	get_positon_enumy(solong);
+	if (valid_enumy(solong))
+		handling_enumy_error(solong,
+			"oops! this invalid game << becouse enumy can not move >>\n");
 }
 
 int	ft_close_(t_solong *solong)

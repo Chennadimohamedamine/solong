@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 22:05:04 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/28 00:33:27 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/28 19:04:02 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ struct s_enmy
 	int		p_x;
 	int		p_y;
 	int		dir;
-	int 	length_enmy;
+	int		length_enmy;
 	int		e_dir[4];
 	int		e_x[4];
 	int		e_y[4];
@@ -107,5 +107,6 @@ void	more_protaction(t_solong *solong);
 int		lenght_enmy(char **map);
 void	handling_enumy(t_solong *solong);
 void	handling_enumy_error(t_solong *solong, char *str);
-void    get_positon_enumy(t_solong *solong);
+void	get_positon_enumy(t_solong *solong);
+int		valid_enumy(t_solong *solong);
 #endif

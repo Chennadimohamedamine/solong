@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 23:47:47 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/23 00:08:36 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/28 18:58:09 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ void	go_to_up(t_solong *solong, int i, int *y, int *x)
 	if (solong->map[*y - 1][*x] == 'C' || solong->map[*y - 1][*x] == 'N'
 		|| solong->map[*y - 1][*x] == 'E' || solong->map[*y - 1][*x] == '1')
 	{
-		solong->enm.e_dir[i] = 1;
+		if (i % 2 == 0)
+			solong->enm.e_dir[i] = 1;
+		else
+			solong->enm.e_dir[i] = 0;
 		return ;
 	}
 	else if (solong->map[*y - 1][*x] == 'P')
@@ -36,7 +39,10 @@ void	go_to_down(t_solong *solong, int i, int *y, int *x)
 	if (solong->map[*y + 1][*x] == 'C' || solong->map[*y + 1][*x] == 'N'
 		|| solong->map[*y + 1][*x] == 'E' || solong->map[*y + 1][*x] == '1')
 	{
-		solong->enm.e_dir[i] = 0;
+		if (i % 2 == 0)
+			solong->enm.e_dir[i] = 0;
+		else
+			solong->enm.e_dir[i] = 1;
 		return ;
 	}
 	else if (solong->map[*y + 1][*x] == 'P')
@@ -55,7 +61,10 @@ void	go_to_left(t_solong *solong, int i, int *y, int *x)
 	if (solong->map[*y][*x - 1] == 'C' || solong->map[*y][*x - 1] == 'N'
 		|| solong->map[*y][*x - 1] == 'E' || solong->map[*y][*x - 1] == '1')
 	{
-		solong->enm.e_dir[i] = 3;
+		if (i % 2 == 0)
+			solong->enm.e_dir[i] = 3;
+		else
+			solong->enm.e_dir[i] = 2;
 		return ;
 	}
 	else if (solong->map[*y][*x - 1] == 'P')
@@ -74,7 +83,10 @@ void	go_to_right(t_solong *solong, int i, int *y, int *x)
 	if (solong->map[*y][*x + 1] == 'C' || solong->map[*y][*x + 1] == 'N'
 		|| solong->map[*y][*x + 1] == 'E' || solong->map[*y][*x + 1] == '1')
 	{
-		solong->enm.e_dir[i] = 2;
+		if (i % 2 == 0)
+			solong->enm.e_dir[i] = 2;
+		else
+			solong->enm.e_dir[i] = 3;
 		return ;
 	}
 	else if (solong->map[*y][*x + 1] == 'P')
