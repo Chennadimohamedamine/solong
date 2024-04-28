@@ -6,37 +6,12 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 17:23:00 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/23 00:15:38 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/28 00:06:28 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	get_positon_exit(char **s, int *x, int *y)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (s[i])
-	{
-		j = 0;
-		while (s[i][j])
-		{
-			if (s[i][j] == 'E')
-			{
-				*x = 1;
-				break ;
-			}
-			j++;
-		}
-		if (*x == 1)
-			break ;
-		i++;
-	}
-	*x = i;
-	*y = j;
-}
 
 void	get_positon(char **s, int *x, int *y)
 {
@@ -75,9 +50,8 @@ int	check_path(char **s)
 		j = 0;
 		while (s[i][j])
 		{
-			if (s[i][j] == '0')
-				j++;
-			else if (s[i][j] != '1' && s[i][j] != 'F')
+			if (s[i][j] != '1' && s[i][j] != 'F' && s[i][j] != '0'
+				&& s[i][j] != 'E')
 				return (1);
 			j++;
 		}
@@ -89,7 +63,7 @@ int	check_path(char **s)
 void	flood_fill(char **map, int y, int x, int row)
 {
 	if (y < 0 || y >= ft_strlen(map[0]) || x < 0 || x >= row
-		|| map[x][y] == '1' || map[x][y] == 'F')
+		|| map[x][y] == '1' || map[x][y] == 'F' || map[x][y] == 'E')
 		return ;
 	map[x][y] = 'F';
 	flood_fill(map, y - 1, x, row);

@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 17:13:52 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/18 02:40:03 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/26 21:24:05 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*ft_itoa(int n)
 
 	len = coutnumber(n);
 	r = (char *)malloc(len + 1);
-	if (r == NULL)
+	if (!r)
 		return (NULL);
 	r[len] = 0;
 	while (len > 0)

@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 22:05:04 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/23 00:44:08 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/28 00:33:27 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <libc.h>
 
 # ifndef BUFFER_SIZE
 
@@ -29,9 +30,10 @@ struct s_enmy
 	int		p_x;
 	int		p_y;
 	int		dir;
-	int		e_dir[2];
-	int		e_x[2];
-	int		e_y[2];
+	int 	length_enmy;
+	int		e_dir[4];
+	int		e_x[4];
+	int		e_y[4];
 };
 
 struct s_game
@@ -39,7 +41,6 @@ struct s_game
 	int		x;
 	int		y;
 	int		move;
-	char	*copy_map;
 	char	*move_str;
 	int		collectible;
 };
@@ -47,8 +48,6 @@ typedef struct so_long
 {
 	int				x;
 	int				y;
-	int				x_e;
-	int				y_e;
 	char			**map;
 	void			*mlx;
 	void			*mlx_win;
@@ -68,7 +67,7 @@ typedef struct so_long
 void	freememory(int c, char **v);
 void	failer_malloc(char **s, char *s2, char *s1, int i);
 void	error_handling(char *s, char **s1, int i);
-char	**lines(t_solong*solong, char *av, int *y);
+char	**lines(char *av, int *y);
 char	*ft_strjoin(char *s1, char *s2);
 char	*readall(int fd);
 char	*ft_strdup(char *s1);
@@ -86,7 +85,6 @@ int		key_hooks(int keycode, t_solong *v);
 void	exit_status(t_solong *so_long, int i, int j);
 void	move_enmy(t_solong *solong, int i, int j);
 void	player_direction(t_solong *solong, int i, int j);
-void	make_enmy(t_solong *solong);
 int		loop_hook(t_solong *solong);
 void	move_to_left(t_solong *solong);
 void	move_to_up(t_solong *solong);
@@ -105,4 +103,9 @@ void	go_to_down(t_solong *solong, int i, int *y, int *x);
 void	go_to_left(t_solong *solong, int i, int *y, int *x);
 void	go_to_right(t_solong *solong, int i, int *y, int *x);
 void	go_x(t_solong *solong, int i, int *y, int *x);
+void	more_protaction(t_solong *solong);
+int		lenght_enmy(char **map);
+void	handling_enumy(t_solong *solong);
+void	handling_enumy_error(t_solong *solong, char *str);
+void    get_positon_enumy(t_solong *solong);
 #endif

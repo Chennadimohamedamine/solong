@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:13:02 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/23 00:14:50 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/28 00:34:15 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,20 +53,14 @@ void	move_enmy(t_solong *solong, int i, int j)
 			solong->enms[1], j * ALL, i * ALL);
 }
 
-void	make_enmy(t_solong *solong)
+void	handling_enumy(t_solong *solong)
 {
-	solong->enm.e_x[0] = solong->x / 2 + 2;
-	solong->enm.e_y[0] = solong->y - 2;
-	solong->enm.e_x[1] = 4;
-	solong->enm.e_y[1] = 1;
-	if (solong->map[solong->y - 2][solong->x / 2 + 2] != '1'
-		&& solong->map[solong->y - 2][solong->x / 2 + 2] != 'E'
-		&& solong->map[solong->y - 2][solong->x / 2 + 2] != 'C')
-		solong->map[solong->y - 2][solong->x / 2 + 2] = 'N';
-	if (solong->map[1][4] != '1'
-		&& solong->map[1][4] != 'E'
-		&& solong->map[1][4] != 'C')
-		solong->map[1][4] = 'N';
+	solong->enm.length_enmy = lenght_enmy(solong->map);
+	if (solong->enm.length_enmy == 0)
+		handling_enumy_error(solong, "you have error << need put enumy >>");
+	else if (solong->enm.length_enmy > 4)
+		handling_enumy_error(solong, "oops! my code dont run greater 4 enumys");
+	get_positon_enumy(solong);
 }
 
 int	ft_close_(t_solong *solong)

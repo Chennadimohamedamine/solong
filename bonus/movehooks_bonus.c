@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:43:46 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/23 00:07:19 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/28 00:54:00 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	animation(t_solong *solong)
 
 	i = 0;
 	mlx_clear_window(solong->mlx, solong->mlx_win);
-	while (i < 2)
+	while (i < solong->enm.length_enmy)
 	{
 		if (i % 2 == 0)
 			go_x(solong, i, &solong->enm.e_y[i], &solong->enm.e_x[i]);

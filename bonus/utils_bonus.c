@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 19:49:38 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/23 00:21:39 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/25 19:51:30 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,55 +49,22 @@ int	all_collect(char **map)
 	return (c);
 }
 
-void	flood_fill_(char **map, int y, int x, int row)
+void	failure_mlx(t_solong *solong)
 {
-	if (y < 0 || y >= ft_strlen(map[0]) || x < 0 || x >= row || map[x][y] == 'N'
-		|| map[x][y] == '1' || map[x][y] == 'F')
-		return ;
-	map[x][y] = 'F';
-	flood_fill_(map, y - 1, x, row);
-	flood_fill_(map, y + 1, x, row);
-	flood_fill_(map, y, x - 1, row);
-	flood_fill_(map, y, x + 1, row);
+	freememory(solong->y, solong->map);
+	mlx_destroy_window(solong->mlx, solong->mlx_win);
+	perror("mlx is failure ");
+	exit(1);
 }
 
-int	check_path_(char **s)
+void	more_protaction(t_solong *solong)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	while (s[i])
-	{
-		j = 0;
-		while (s[i][j])
-		{
-			if (s[i][j] == '0')
-				j++;
-			else if (s[i][j] != '1' && s[i][j] != 'F' && s[i][j] != 'N')
-				return (1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
-
-void	check_validgame(t_solong *solong)
-{
-	int		i;
-	int		p[2];
-	char	**map;
-
-	i = 0;
-	map = splitnewline(solong->event.copy_map, &i, '\n');
-	p[0] = 0;
-	p[1] = 0;
-	get_positon(map, &p[0], &p[1]);
-	flood_fill_(map, p[1], p[0], i);
-	if (check_path_(map))
-		error_handling(solong->event.copy_map, map, i);
-	freememory(i, map);
-	free(solong->event.copy_map);
-	solong->event.copy_map = NULL;
+	if (!solong->enms[0] || !solong->enms[1] || !solong->bg)
+		failure_mlx(solong);
+	else if (!solong->close || !solong->collect || !solong->open)
+		failure_mlx(solong);
+	else if (!solong->p[0] || !solong->p[1] || !solong->p[2] || !solong->p[3])
+		failure_mlx(solong);
+	else if (!solong->walls || !solong->p[3])
+		failure_mlx(solong);
 }

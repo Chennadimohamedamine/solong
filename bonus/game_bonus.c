@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:43:17 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/23 00:05:17 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/25 19:47:40 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	convert_image(t_solong *img)
 	img->close = mlx_xpm_file_to_image(img->mlx, "textures/close.xpm", &f, &f);
 	img->open = mlx_xpm_file_to_image(img->mlx, "textures/open.xpm", &f, &f);
 	img->bg = mlx_xpm_file_to_image(img->mlx, "textures/bg.xpm", &f, &f);
+	more_protaction(img);
 }
 
 void	put_img(t_solong *so_long)

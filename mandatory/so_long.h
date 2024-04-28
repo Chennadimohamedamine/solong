@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:55:55 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/23 00:43:07 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/28 00:07:13 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <libc.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10
@@ -35,8 +36,6 @@ typedef struct so_long
 {
 	int				x;
 	int				y;
-	int				x_e;
-	int				y_e;
 	char			**map;
 	void			*mlx;
 	void			*mlx_win;
@@ -80,4 +79,5 @@ void	error_handling(char *s, char **s1, int i);
 void	put_exit(t_solong *so_long, int i, int j);
 int		key_hook(int keycode, t_solong *v);
 void	put_coll_and_bg(t_solong *so_long, int i, int j);
+void	more_protaction(t_solong *solong);
 #endif

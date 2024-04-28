@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 17:46:11 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/20 02:37:22 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/26 21:30:27 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ char	*get_string(char *s, int *s1, char l)
 		c++;
 	}
 	r = malloc(c + 1);
+	if (r == NULL)
+		return (NULL);
 	i = 0;
 	c = 0;
 	while (s[i] == l)
