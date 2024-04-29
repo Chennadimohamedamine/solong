@@ -27,7 +27,7 @@ OBJFILEBONUS = $(FILEBONUS:%.c=%.o)
 NAME = so_long
 
 $(NAME): $(OBJFILE)
-	cc -Wall -Wextra -Werror -lmlx -framework OpenGL -framework AppKit -fsanitize=address $(OBJFILE) -o $(NAME)
+	cc -Wall -Wextra -Werror -lmlx -framework OpenGL -framework AppKit  $(OBJFILE) -o $(NAME)
 
 %.o: %.c mandatory/so_long.h bonus/so_long_bonus.h
 	cc -Wall -Wextra -Werror -o $@ -c $<
@@ -35,7 +35,7 @@ $(NAME): $(OBJFILE)
 all: $(NAME)
 
 bonus: $(OBJFILEBONUS)
-	cc -Wall -Wextra -Werror -lmlx -framework OpenGL -framework AppKit -fsanitize=address $(OBJFILEBONUS) -o so_long_bonus
+	cc -Wall -Wextra -Werror -lmlx -framework OpenGL -framework AppKit  $(OBJFILEBONUS) -o so_long_bonus
 
 clean:
 	rm -f $(OBJFILE)

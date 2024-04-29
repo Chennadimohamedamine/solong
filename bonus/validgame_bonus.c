@@ -6,7 +6,7 @@
 /*   By: mochenna <mochenna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 19:46:54 by mochenna          #+#    #+#             */
-/*   Updated: 2024/04/28 00:06:49 by mochenna         ###   ########.fr       */
+/*   Updated: 2024/04/29 00:32:03 by mochenna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,21 @@ void	get_positon(char **s, int *x, int *y)
 	*y = j;
 }
 
-int	check_path(char **s)
+int	check_path(char **tmp)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (s[i])
+	j = 0;
+	while (tmp[i])
 	{
 		j = 0;
-		while (s[i][j])
+		while (tmp[i][j])
 		{
-			if (s[i][j] != '1' && s[i][j] != 'F' && s[i][j] != '0'
-				&& s[i][j] != 'E' && s[i][j] != 'N')
+			if ((tmp[i][j] == 'C' || tmp[i][j] == 'E') && (tmp[i - 1][j] != 70
+							&& tmp[i + 1][j] != 70 && tmp[i][j + 1] != 70
+								&& tmp[i][j - 1] != 70))
 				return (1);
 			j++;
 		}
